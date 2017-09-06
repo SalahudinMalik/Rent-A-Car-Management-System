@@ -1,0 +1,29 @@
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\CarDALEF\bin\Debug\CarDALEF.dll.config
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\CarDALEF\bin\Debug\CarDALEF.dll
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\CarDALEF\bin\Debug\CarDALEF.pdb
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\CarDALEF\bin\Debug\EntityFramework.dll
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\CarDALEF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\CarDALEF\bin\Debug\ViewModel.dll
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\CarDALEF\bin\Debug\ViewModel.pdb
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\CarDALEF\bin\Debug\EntityFramework.xml
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\CarDALEF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\CarDALEF\obj\Debug\CarDALEF.csprojResolveAssemblyReference.cache
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\CarDALEF\obj\Debug\CarDALEF.dll
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\CarDALEF\obj\Debug\CarDALEF.pdb
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\bin\Debug\AutoDealership.mdf
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\bin\Debug\AutoDealership_log.ldf
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\bin\Debug\CarDALEF.dll.config
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\bin\Debug\CarDALEF.dll
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\bin\Debug\CarDALEF.pdb
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\bin\Debug\EntityFramework.dll
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\bin\Debug\ViewModel.dll
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\bin\Debug\ViewModel.pdb
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\bin\Debug\EntityFramework.xml
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\obj\Debug\CarDALEF.csprojResolveAssemblyReference.cache
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\obj\Debug\CarDALEF.dll
+C:\Users\AWs\Desktop\AutoDealership\CarDALEF\obj\Debug\CarDALEF.pdb
+G:\Study material\AutoDealership\CarDALEF\obj\Debug\CarDALEF.csprojResolveAssemblyReference.cache
+G:\Study material\AutoDealership\CarDALEF\obj\Debug\CarDALEF.dll
+G:\Study material\AutoDealership\CarDALEF\obj\Debug\CarDALEF.pdb

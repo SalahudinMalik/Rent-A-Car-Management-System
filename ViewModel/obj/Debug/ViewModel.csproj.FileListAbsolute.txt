@@ -1,0 +1,25 @@
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\ViewModel\bin\Debug\ViewModel.dll
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\ViewModel\bin\Debug\ViewModel.pdb
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\ViewModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\ViewModel\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\ViewModel\bin\Debug\EntityFramework.dll
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\ViewModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\ViewModel\bin\Debug\EntityFramework.xml
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\ViewModel\obj\Debug\ViewModel.dll
+C:\Users\Salahudin\documents\visual studio 2013\Projects\AutoDealership\ViewModel\obj\Debug\ViewModel.pdb
+C:\Users\AWs\Desktop\AutoDealership\ViewModel\bin\Debug\ViewModel.dll
+C:\Users\AWs\Desktop\AutoDealership\ViewModel\bin\Debug\ViewModel.pdb
+C:\Users\AWs\Desktop\AutoDealership\ViewModel\bin\Debug\EntityFramework.dll
+C:\Users\AWs\Desktop\AutoDealership\ViewModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\AWs\Desktop\AutoDealership\ViewModel\bin\Debug\EntityFramework.xml
+C:\Users\AWs\Desktop\AutoDealership\ViewModel\obj\Debug\ViewModel.csprojResolveAssemblyReference.cache
+C:\Users\AWs\Desktop\AutoDealership\ViewModel\obj\Debug\ViewModel.dll
+C:\Users\AWs\Desktop\AutoDealership\ViewModel\obj\Debug\ViewModel.pdb
+G:\Study material\AutoDealership\ViewModel\bin\Debug\ViewModel.dll
+G:\Study material\AutoDealership\ViewModel\bin\Debug\ViewModel.pdb
+G:\Study material\AutoDealership\ViewModel\bin\Debug\EntityFramework.dll
+G:\Study material\AutoDealership\ViewModel\bin\Debug\EntityFramework.SqlServer.xml
+G:\Study material\AutoDealership\ViewModel\bin\Debug\EntityFramework.xml
+G:\Study material\AutoDealership\ViewModel\obj\Debug\ViewModel.csprojResolveAssemblyReference.cache
+G:\Study material\AutoDealership\ViewModel\obj\Debug\ViewModel.dll
+G:\Study material\AutoDealership\ViewModel\obj\Debug\ViewModel.pdb

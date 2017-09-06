@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AutoDealershipModelStoreContainer" CdmEntityContainer="AutoDealershipEntities">
+    <EntitySetMapping Name="Admin_Table">
+      <EntityTypeMapping TypeName="AutoDealershipModel.Admin_Table">
+        <MappingFragment StoreEntitySet="Admin_Table">
+          <ScalarProperty Name="A_ID" ColumnName="A_ID" />
+          <ScalarProperty Name="A_UserName" ColumnName="A_UserName" />
+          <ScalarProperty Name="A_Password" ColumnName="A_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Car_Table">
+      <EntityTypeMapping TypeName="AutoDealershipModel.Car_Table">
+        <MappingFragment StoreEntitySet="Car_Table">
+          <ScalarProperty Name="CA_ID" ColumnName="CA_ID" />
+          <ScalarProperty Name="CA_RegNo" ColumnName="CA_RegNo" />
+          <ScalarProperty Name="CA_Color" ColumnName="CA_Color" />
+          <ScalarProperty Name="CA_Model" ColumnName="CA_Model" />
+          <ScalarProperty Name="CA_Company" ColumnName="CA_Company" />
+          <ScalarProperty Name="CA_Status" ColumnName="CA_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Table">
+      <EntityTypeMapping TypeName="AutoDealershipModel.Customer_Table">
+        <MappingFragment StoreEntitySet="Customer_Table">
+          <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+          <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+          <ScalarProperty Name="C_Address" ColumnName="C_Address" />
+          <ScalarProperty Name="C_Phone" ColumnName="C_Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Table">
+      <EntityTypeMapping TypeName="AutoDealershipModel.Employee_Table">
+        <MappingFragment StoreEntitySet="Employee_Table">
+          <ScalarProperty Name="E_ID" ColumnName="E_ID" />
+          <ScalarProperty Name="E_Name" ColumnName="E_Name" />
+          <ScalarProperty Name="E_Address" ColumnName="E_Address" />
+          <ScalarProperty Name="E_Desg" ColumnName="E_Desg" />
+          <ScalarProperty Name="E_Phone" ColumnName="E_Phone" />
+          <ScalarProperty Name="E_Salary" ColumnName="E_Salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RCB_Table">
+      <EntityTypeMapping TypeName="AutoDealershipModel.RCB_Table">
+        <MappingFragment StoreEntitySet="RCB_Table">
+          <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+          <ScalarProperty Name="CA_ID" ColumnName="CA_ID" />
+          <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+          <ScalarProperty Name="RCB_ID" ColumnName="RCB_ID" />
+          <ScalarProperty Name="RCB_DOI" ColumnName="RCB_DOI" />
+          <ScalarProperty Name="RCB_DOR" ColumnName="RCB_DOR" />
+          <ScalarProperty Name="RCB_RentPD" ColumnName="RCB_RentPD" />
+          <ScalarProperty Name="RCB_TotalBill" ColumnName="RCB_TotalBill" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tax_Table">
+      <EntityTypeMapping TypeName="AutoDealershipModel.Tax_Table">
+        <MappingFragment StoreEntitySet="Tax_Table">
+          <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+          <ScalarProperty Name="T_Per" ColumnName="T_Per" />
+          <ScalarProperty Name="T_Desc" ColumnName="T_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

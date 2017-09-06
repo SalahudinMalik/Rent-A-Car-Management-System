@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AutoDealershipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin_Table">
+    <Key>
+      <PropertyRef Name="A_ID" />
+      <PropertyRef Name="A_UserName" />
+    </Key>
+    <Property Name="A_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="A_UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="A_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Car_Table">
+    <Key>
+      <PropertyRef Name="CA_ID" />
+    </Key>
+    <Property Name="CA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CA_RegNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CA_Color" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CA_Model" Type="String" Nullable="false" />
+    <Property Name="CA_Company" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CA_Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="RCB_Table" Relationship="AutoDealershipModel.FK_RCB_Table_Car_Table" FromRole="Car_Table" ToRole="RCB_Table" />
+  </EntityType>
+  <EntityType Name="Customer_Table">
+    <Key>
+      <PropertyRef Name="C_ID" />
+    </Key>
+    <Property Name="C_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="C_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="C_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="C_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="RCB_Table" Relationship="AutoDealershipModel.FK_RCB_Table_Customer_Table" FromRole="Customer_Table" ToRole="RCB_Table" />
+  </EntityType>
+  <EntityType Name="Employee_Table">
+    <Key>
+      <PropertyRef Name="E_ID" />
+    </Key>
+    <Property Name="E_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="E_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_Desg" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_Phone" Type="Int32" Nullable="false" />
+    <Property Name="E_Salary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RCB_Table">
+    <Key>
+      <PropertyRef Name="RCB_ID" />
+    </Key>
+    <Property Name="RCB_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RCB_DOI" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="RCB_DOR" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="RCB_RentPD" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="RCB_TotalBill" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="C_ID" Type="Int32" Nullable="false" />
+    <Property Name="CA_ID" Type="Int32" Nullable="false" />
+    <Property Name="T_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Car_Table" Relationship="AutoDealershipModel.FK_RCB_Table_Car_Table" FromRole="RCB_Table" ToRole="Car_Table" />
+    <NavigationProperty Name="Customer_Table" Relationship="AutoDealershipModel.FK_RCB_Table_Customer_Table" FromRole="RCB_Table" ToRole="Customer_Table" />
+    <NavigationProperty Name="Tax_Table" Relationship="AutoDealershipModel.FK_RCB_Table_Tax_Table" FromRole="RCB_Table" ToRole="Tax_Table" />
+  </EntityType>
+  <EntityType Name="Tax_Table">
+    <Key>
+      <PropertyRef Name="T_ID" />
+    </Key>
+    <Property Name="T_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="T_Per" Type="Int32" Nullable="false" />
+    <Property Name="T_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RCB_Table" Relationship="AutoDealershipModel.FK_RCB_Table_Tax_Table" FromRole="Tax_Table" ToRole="RCB_Table" />
+  </EntityType>
+  <EntityContainer Name="AutoDealershipEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin_Table" EntityType="Self.Admin_Table" />
+    <EntitySet Name="Car_Table" EntityType="Self.Car_Table" />
+    <EntitySet Name="Customer_Table" EntityType="Self.Customer_Table" />
+    <EntitySet Name="Employee_Table" EntityType="Self.Employee_Table" />
+    <EntitySet Name="RCB_Table" EntityType="Self.RCB_Table" />
+    <EntitySet Name="Tax_Table" EntityType="Self.Tax_Table" />
+    <AssociationSet Name="FK_RCB_Table_Car_Table" Association="AutoDealershipModel.FK_RCB_Table_Car_Table">
+      <End Role="Car_Table" EntitySet="Car_Table" />
+      <End Role="RCB_Table" EntitySet="RCB_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RCB_Table_Customer_Table" Association="AutoDealershipModel.FK_RCB_Table_Customer_Table">
+      <End Role="Customer_Table" EntitySet="Customer_Table" />
+      <End Role="RCB_Table" EntitySet="RCB_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RCB_Table_Tax_Table" Association="AutoDealershipModel.FK_RCB_Table_Tax_Table">
+      <End Role="Tax_Table" EntitySet="Tax_Table" />
+      <End Role="RCB_Table" EntitySet="RCB_Table" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_RCB_Table_Car_Table">
+    <End Type="AutoDealershipModel.Car_Table" Role="Car_Table" Multiplicity="1" />
+    <End Type="AutoDealershipModel.RCB_Table" Role="RCB_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car_Table">
+        <PropertyRef Name="CA_ID" />
+      </Principal>
+      <Dependent Role="RCB_Table">
+        <PropertyRef Name="CA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RCB_Table_Customer_Table">
+    <End Type="AutoDealershipModel.Customer_Table" Role="Customer_Table" Multiplicity="1" />
+    <End Type="AutoDealershipModel.RCB_Table" Role="RCB_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer_Table">
+        <PropertyRef Name="C_ID" />
+      </Principal>
+      <Dependent Role="RCB_Table">
+        <PropertyRef Name="C_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RCB_Table_Tax_Table">
+    <End Type="AutoDealershipModel.Tax_Table" Role="Tax_Table" Multiplicity="1" />
+    <End Type="AutoDealershipModel.RCB_Table" Role="RCB_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tax_Table">
+        <PropertyRef Name="T_ID" />
+      </Principal>
+      <Dependent Role="RCB_Table">
+        <PropertyRef Name="T_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

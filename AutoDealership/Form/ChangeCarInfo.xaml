@@ -1,0 +1,95 @@
+﻿<Window x:Class="AutoDealership.Form.ChangeCarInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        Title="Change Car Info" Height="275.735" Width="485.676" Loaded="Window_Loaded">
+    <Window.Resources>
+        <!--<Style x:Key="TooltipInError" TargetType="{x:Type Control}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+        Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
+        <Style TargetType="{x:Type Control}" x:Key="TooltipInError">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,2,40,2" />
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <DockPanel LastChildFill="true">
+                            <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="14" Height="14" CornerRadius="7"
+                            ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
+                                </TextBlock>
+                            </Border>
+                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                                <Border BorderBrush="red" BorderThickness="1" />
+                            </AdornedElementPlaceholder>
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FFC0C8C9">
+        <Image HorizontalAlignment="Left" Height="276" Margin="268,-21,-73,-10" VerticalAlignment="Top" Width="283" Source="C:\Users\Salahudin\Desktop\5.png" StretchDirection="DownOnly" Stretch="UniformToFill"/>
+
+        <Label Content="Enter New Record Below" HorizontalAlignment="Left" Height="31" Margin="51,9,0,0" VerticalAlignment="Top" Width="176" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Reg No:" HorizontalAlignment="Left" Height="26" Margin="25,45,0,0" VerticalAlignment="Top" Width="84"/>
+        <TextBox Style="{StaticResource TooltipInError}" x:Name="txtRegNo" HorizontalAlignment="Left" Height="26" Margin="114,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135">
+            <TextBox.Text>
+                <Binding Path="CA_RegNo"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Content="Color:" HorizontalAlignment="Left" Height="26" Margin="25,76,0,0" VerticalAlignment="Top" Width="84"/>
+        <TextBox Style="{StaticResource TooltipInError}" x:Name="txtColor" HorizontalAlignment="Left" Height="26" Margin="114,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135">
+            <TextBox.Text>
+                <Binding Path="CA_Color"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Content="Model:" HorizontalAlignment="Left" Height="26" Margin="25,107,0,0" VerticalAlignment="Top" Width="84"/>
+        <TextBox Style="{StaticResource TooltipInError}" x:Name="txtModel" HorizontalAlignment="Left" Height="26" Margin="114,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135">
+            <TextBox.Text>
+                <Binding Path="CA_Model"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Content="Company:" HorizontalAlignment="Left" Height="26" Margin="25,138,0,0" VerticalAlignment="Top" Width="84"/>
+        <TextBox Style="{StaticResource TooltipInError}" x:Name="txtCompany" HorizontalAlignment="Left" Height="26" Margin="114,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135">
+            <TextBox.Text>
+                <Binding Path="CA_Company"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Height="31" Margin="25,188,0,0" VerticalAlignment="Top" Width="84" Click="btnBack_Click"/>
+        <Button x:Name="btnSave" Content="Save Change" HorizontalAlignment="Left" Height="31" Margin="155,188,0,0" VerticalAlignment="Top" Width="94" Click="btnSave_Click"/>
+
+    </Grid>
+</Window>
+

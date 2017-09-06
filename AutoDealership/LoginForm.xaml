@@ -1,0 +1,77 @@
+﻿<Window x:Class="AutoDealership.LoginForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Login Form" Height="303.412" Width="472">
+    <Window.Resources>
+        <!--<Style x:Key="TooltipInError" TargetType="{x:Type Control}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+        Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
+        <Style TargetType="{x:Type Control}" x:Key="TooltipInError">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,2,40,2" />
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <DockPanel LastChildFill="true">
+                            <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="14" Height="14" CornerRadius="7"
+                            ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
+                                </TextBlock>
+                            </Border>
+                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                                <Border BorderBrush="red" BorderThickness="1" />
+                            </AdornedElementPlaceholder>
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FFC0C8C9">
+
+        <Label Content="User Name:" HorizontalAlignment="Left" Height="26" Margin="9,87,0,0" VerticalAlignment="Top" Width="107" FontWeight="Bold">
+            <Label.Background>
+                <ImageBrush/>
+            </Label.Background>
+        </Label>
+        <TextBox x:Name="txtuName" Style="{StaticResource TooltipInError}" HorizontalAlignment="Left" Height="26" Margin="106,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Background="#FFFBFBFB">
+            <TextBox.Text>
+                <Binding Path="A_UserName"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Content="Login Window" HorizontalAlignment="Left" Height="55" Margin="29,10,0,0" VerticalAlignment="Top" Width="220" FontSize="30"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Height="26" Margin="9,128,0,0" VerticalAlignment="Top" Width="107" FontWeight="Bold">
+            
+        </Label>
+        <TextBox x:Name="txtPasword" Style="{StaticResource TooltipInError}" HorizontalAlignment="Left" Height="26" Margin="106,128,0,0" VerticalAlignment="Top" Width="143">
+            <TextBox.Text>
+                <Binding Path="A_Password"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Button x:Name="BtnLogin" Content="Login" HorizontalAlignment="Left" Height="44" Margin="135,194,0,0" VerticalAlignment="Top" Width="114" FontSize="24" FontFamily="Yu Mincho Demibold" FontWeight="Bold" Click="BtnLogin_Click">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Image HorizontalAlignment="Left" Height="272" Margin="254,0,-2,0" VerticalAlignment="Top" Width="212" Source="C:\Users\Salahudin\Desktop\5.png" StretchDirection="DownOnly" Stretch="UniformToFill"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDealership", "AutoDealership\AutoDealership.csproj", "{115A21D9-CF64-4394-936E-D210E863DB74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarDALEF", "CarDALEF\CarDALEF.csproj", "{3B8D69FA-944F-4B8B-A749-23B696C70A8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{BF1E567F-6984-4145-B29E-0FCEAD215A6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{115A21D9-CF64-4394-936E-D210E863DB74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{115A21D9-CF64-4394-936E-D210E863DB74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{115A21D9-CF64-4394-936E-D210E863DB74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{115A21D9-CF64-4394-936E-D210E863DB74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B8D69FA-944F-4B8B-A749-23B696C70A8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B8D69FA-944F-4B8B-A749-23B696C70A8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B8D69FA-944F-4B8B-A749-23B696C70A8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B8D69FA-944F-4B8B-A749-23B696C70A8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF1E567F-6984-4145-B29E-0FCEAD215A6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF1E567F-6984-4145-B29E-0FCEAD215A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF1E567F-6984-4145-B29E-0FCEAD215A6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF1E567F-6984-4145-B29E-0FCEAD215A6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

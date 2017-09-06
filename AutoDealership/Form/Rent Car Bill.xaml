@@ -1,0 +1,160 @@
+﻿<Window x:Class="AutoDealership.Form.Rent_Car_Bill"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        Title="Rent Car Bill" MaxHeight="463" MaxWidth="651.5" Loaded="Window_Loaded">
+    <Window.Resources>
+        <!--<Style x:Key="TooltipInError" TargetType="{x:Type Control}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+        Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
+        <Style TargetType="{x:Type Control}" x:Key="TooltipInError">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,2,40,2" />
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <DockPanel LastChildFill="true">
+                            <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="14" Height="14" CornerRadius="7"
+                            ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
+                                </TextBlock>
+                            </Border>
+                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                                <Border BorderBrush="red" BorderThickness="1" />
+                            </AdornedElementPlaceholder>
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FFC0C8C9">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Left" Height="319" Margin="358,29,0,0" VerticalAlignment="Top" Width="284" Source="C:\Users\Salahudin\Desktop\5.png" StretchDirection="DownOnly" Stretch="UniformToFill"/>
+
+        <Menu HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="644">
+            <MenuItem Header="_View" Click="MenuItem_Click_1"  />
+            <MenuItem Header="_Help" Click="MenuItem_Click" />
+        </Menu>
+        <Label Content="Select Car Reg:" HorizontalAlignment="Left" Height="26" Margin="21,56,0,0" VerticalAlignment="Top" Width="107"/>
+        <ComboBox  Style="{StaticResource TooltipInError}" x:Name="cbRegNo" HorizontalAlignment="Left" Height="26" Margin="133,56,0,0" VerticalAlignment="Top" Width="188">
+            <ComboBox.SelectedValue>
+                <Binding Path="CA_RegNo"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </ComboBox.SelectedValue>
+        </ComboBox>
+        <Label Content="Customer Name:"  HorizontalAlignment="Left" Height="26" Margin="20,87,0,0" VerticalAlignment="Top" Width="107"/>
+        <TextBox x:Name="txtName" Style="{StaticResource TooltipInError}" HorizontalAlignment="Left" Height="26" Margin="133,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188">
+            <TextBox.Text>
+                <Binding Path="C_Name"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="txtAddress" Style="{StaticResource TooltipInError}" HorizontalAlignment="Left" Height="26" Margin="133,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188">
+            <TextBox.Text>
+                <Binding Path="C_Address"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="txtPhone" Style="{StaticResource TooltipInError}" HorizontalAlignment="Left" Height="26" Margin="133,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188">
+            <TextBox.Text>
+                <Binding Path="C_Phone"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Content="Customer Phone:" HorizontalAlignment="Left" Height="26" Margin="21,149,0,0" VerticalAlignment="Top" Width="107"/>
+        <Label Content="Customer Address:" HorizontalAlignment="Left" Height="26" Margin="21,118,0,0" VerticalAlignment="Top" Width="107"/>
+        <Label Content="Date Of Issue:" HorizontalAlignment="Left" Height="26" Margin="21,180,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.529,1.778"/>
+        <DatePicker Style="{StaticResource TooltipInError}" x:Name="dpDOI" HorizontalAlignment="Left" Height="26" Margin="133,180,0,0" VerticalAlignment="Top" Width="188" IsTodayHighlighted="True" >
+            <DatePicker.SelectedDate>
+                <Binding Path="RCB_DOI"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="Default" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </DatePicker.SelectedDate>
+        </DatePicker>
+        <Label Content="Date Of Return:" HorizontalAlignment="Left" Height="26" Margin="21,211,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.529,1.778"/>
+        <DatePicker x:Name="dpDOR" Style="{StaticResource TooltipInError}" HorizontalAlignment="Left" Height="26" Margin="133,211,0,0" VerticalAlignment="Top" Width="188">
+            <DatePicker.SelectedDate>
+                <Binding Path="RCB_DOR"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </DatePicker.SelectedDate>
+        </DatePicker>
+        <Label Content="Rent Per Day:" HorizontalAlignment="Left" Height="26" Margin="21,242,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.529,1.778"/>
+        <TextBox x:Name="txtRPD" Style="{StaticResource TooltipInError}" HorizontalAlignment="Left" Height="26" Margin="133,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188">
+            <TextBox.Text>
+                <Binding Path="RCB_RentPD"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Content="Tax:" HorizontalAlignment="Left" Height="26" Margin="21,273,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.529,1.778"/>
+        <ComboBox x:Name="cbTax" Style="{StaticResource TooltipInError}" HorizontalAlignment="Left" Height="26" Margin="133,273,0,0" VerticalAlignment="Top" Width="188" SelectionChanged="cbTax_SelectionChanged">
+            <ComboBox.SelectedValue>
+                <Binding Path="T_ID"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </ComboBox.SelectedValue>
+        </ComboBox>
+        <TextBox x:Name="TotalB" Style="{StaticResource TooltipInError}" HorizontalAlignment="Left" Height="26" Margin="133,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188">
+            <TextBox.Text>
+                <Binding Path="RCB_TotalBill"
+                         ValidatesOnDataErrors="True"   
+                         UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Content="Total Bill:" HorizontalAlignment="Left" Height="26" Margin="21,304,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.529,1.778"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Height="32" Margin="221,366,0,0" VerticalAlignment="Top" Width="94" Click="btnSave_Click"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Height="32" Margin="21,366,0,0" VerticalAlignment="Top" Width="84" Click="btnBack_Click"/>
+
+    </Grid>
+</Window>

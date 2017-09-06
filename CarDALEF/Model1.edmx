@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AutoDealershipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin_Table">
+          <Key>
+            <PropertyRef Name="A_ID" />
+            <PropertyRef Name="A_UserName" />
+          </Key>
+          <Property Name="A_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="A_UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="A_Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Car_Table">
+          <Key>
+            <PropertyRef Name="CA_ID" />
+          </Key>
+          <Property Name="CA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CA_RegNo" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CA_Color" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CA_Model" Type="int" Nullable="false" />
+          <Property Name="CA_Company" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="CA_Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Ci_ID" />
+          </Key>
+          <Property Name="Ci_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer_Table">
+          <Key>
+            <PropertyRef Name="C_ID" />
+          </Key>
+          <Property Name="C_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="C_Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="C_Phone" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee_Table">
+          <Key>
+            <PropertyRef Name="E_ID" />
+          </Key>
+          <Property Name="E_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="E_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="E_Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="E_Desg" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="E_Phone" Type="int" Nullable="false" />
+          <Property Name="E_Salary" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RCB_Table">
+          <Key>
+            <PropertyRef Name="RCB_ID" />
+          </Key>
+          <Property Name="RCB_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RCB_DOI" Type="date" Nullable="false" />
+          <Property Name="RCB_DOR" Type="date" Nullable="false" />
+          <Property Name="RCB_RentPD" Type="money" Nullable="false" />
+          <Property Name="RCB_TotalBill" Type="money" Nullable="false" />
+          <Property Name="C_ID" Type="int" Nullable="false" />
+          <Property Name="CA_ID" Type="int" Nullable="false" />
+          <Property Name="T_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShowRoom">
+          <Key>
+            <PropertyRef Name="S_ID" />
+          </Key>
+          <Property Name="S_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShowRName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SRContectNumber" Type="int" Nullable="false" />
+          <Property Name="City_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tax_Table">
+          <Key>
+            <PropertyRef Name="T_ID" />
+          </Key>
+          <Property Name="T_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="T_Per" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_RCB_Table_Car_Table1">
+          <End Role="Car_Table" Type="Self.Car_Table" Multiplicity="1" />
+          <End Role="RCB_Table" Type="Self.RCB_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car_Table">
+              <PropertyRef Name="CA_ID" />
+            </Principal>
+            <Dependent Role="RCB_Table">
+              <PropertyRef Name="CA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RCB_Table_Customer_Table">
+          <End Role="Customer_Table" Type="Self.Customer_Table" Multiplicity="1" />
+          <End Role="RCB_Table" Type="Self.RCB_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer_Table">
+              <PropertyRef Name="C_ID" />
+            </Principal>
+            <Dependent Role="RCB_Table">
+              <PropertyRef Name="C_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RCB_Table_Tax_Table">
+          <End Role="Tax_Table" Type="Self.Tax_Table" Multiplicity="1" />
+          <End Role="RCB_Table" Type="Self.RCB_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tax_Table">
+              <PropertyRef Name="T_ID" />
+            </Principal>
+            <Dependent Role="RCB_Table">
+              <PropertyRef Name="T_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShowRoom_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="ShowRoom" Type="Self.ShowRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Ci_ID" />
+            </Principal>
+            <Dependent Role="ShowRoom">
+              <PropertyRef Name="City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AutoDealershipModelStoreContainer">
+          <EntitySet Name="Admin_Table" EntityType="Self.Admin_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Car_Table" EntityType="Self.Car_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer_Table" EntityType="Self.Customer_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee_Table" EntityType="Self.Employee_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RCB_Table" EntityType="Self.RCB_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShowRoom" EntityType="Self.ShowRoom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tax_Table" EntityType="Self.Tax_Table" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_RCB_Table_Car_Table1" Association="Self.FK_RCB_Table_Car_Table1">
+            <End Role="Car_Table" EntitySet="Car_Table" />
+            <End Role="RCB_Table" EntitySet="RCB_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RCB_Table_Customer_Table" Association="Self.FK_RCB_Table_Customer_Table">
+            <End Role="Customer_Table" EntitySet="Customer_Table" />
+            <End Role="RCB_Table" EntitySet="RCB_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RCB_Table_Tax_Table" Association="Self.FK_RCB_Table_Tax_Table">
+            <End Role="Tax_Table" EntitySet="Tax_Table" />
+            <End Role="RCB_Table" EntitySet="RCB_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShowRoom_City" Association="Self.FK_ShowRoom_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="ShowRoom" EntitySet="ShowRoom" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AutoDealershipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin_Table">
+          <Key>
+            <PropertyRef Name="A_ID" />
+            <PropertyRef Name="A_UserName" />
+          </Key>
+          <Property Name="A_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="A_UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="A_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Car_Table">
+          <Key>
+            <PropertyRef Name="CA_ID" />
+          </Key>
+          <Property Name="CA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CA_RegNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CA_Color" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CA_Model" Type="Int32" Nullable="false" />
+          <Property Name="CA_Company" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CA_Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="RCB_Table" Relationship="Self.FK_RCB_Table_Car_Table1" FromRole="Car_Table" ToRole="RCB_Table" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Ci_ID" />
+          </Key>
+          <Property Name="Ci_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ShowRooms" Relationship="Self.FK_ShowRoom_City" FromRole="City" ToRole="ShowRoom" />
+        </EntityType>
+        <EntityType Name="Customer_Table">
+          <Key>
+            <PropertyRef Name="C_ID" />
+          </Key>
+          <Property Name="C_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RCB_Table" Relationship="Self.FK_RCB_Table_Customer_Table" FromRole="Customer_Table" ToRole="RCB_Table" />
+        </EntityType>
+        <EntityType Name="Employee_Table">
+          <Key>
+            <PropertyRef Name="E_ID" />
+          </Key>
+          <Property Name="E_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="E_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="E_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="E_Desg" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="E_Phone" Type="Int32" Nullable="false" />
+          <Property Name="E_Salary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RCB_Table">
+          <Key>
+            <PropertyRef Name="RCB_ID" />
+          </Key>
+          <Property Name="RCB_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RCB_DOI" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="RCB_DOR" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="RCB_RentPD" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="RCB_TotalBill" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="C_ID" Type="Int32" Nullable="false" />
+          <Property Name="CA_ID" Type="Int32" Nullable="false" />
+          <Property Name="T_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Car_Table" Relationship="Self.FK_RCB_Table_Car_Table1" FromRole="RCB_Table" ToRole="Car_Table" />
+          <NavigationProperty Name="Customer_Table" Relationship="Self.FK_RCB_Table_Customer_Table" FromRole="RCB_Table" ToRole="Customer_Table" />
+          <NavigationProperty Name="Tax_Table" Relationship="Self.FK_RCB_Table_Tax_Table" FromRole="RCB_Table" ToRole="Tax_Table" />
+        </EntityType>
+        <EntityType Name="ShowRoom">
+          <Key>
+            <PropertyRef Name="S_ID" />
+          </Key>
+          <Property Name="S_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShowRName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SRContectNumber" Type="Int32" Nullable="false" />
+          <Property Name="City_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_ShowRoom_City" FromRole="ShowRoom" ToRole="City" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tax_Table">
+          <Key>
+            <PropertyRef Name="T_ID" />
+          </Key>
+          <Property Name="T_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="T_Per" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RCB_Table" Relationship="Self.FK_RCB_Table_Tax_Table" FromRole="Tax_Table" ToRole="RCB_Table" />
+        </EntityType>
+        <Association Name="FK_RCB_Table_Car_Table1">
+          <End Role="Car_Table" Type="Self.Car_Table" Multiplicity="1" />
+          <End Role="RCB_Table" Type="Self.RCB_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car_Table">
+              <PropertyRef Name="CA_ID" />
+            </Principal>
+            <Dependent Role="RCB_Table">
+              <PropertyRef Name="CA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShowRoom_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="ShowRoom" Type="Self.ShowRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Ci_ID" />
+            </Principal>
+            <Dependent Role="ShowRoom">
+              <PropertyRef Name="City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RCB_Table_Customer_Table">
+          <End Role="Customer_Table" Type="Self.Customer_Table" Multiplicity="1" />
+          <End Role="RCB_Table" Type="Self.RCB_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer_Table">
+              <PropertyRef Name="C_ID" />
+            </Principal>
+            <Dependent Role="RCB_Table">
+              <PropertyRef Name="C_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RCB_Table_Tax_Table">
+          <End Role="Tax_Table" Type="Self.Tax_Table" Multiplicity="1" />
+          <End Role="RCB_Table" Type="Self.RCB_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tax_Table">
+              <PropertyRef Name="T_ID" />
+            </Principal>
+            <Dependent Role="RCB_Table">
+              <PropertyRef Name="T_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AutoDealershipEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin_Table" EntityType="Self.Admin_Table" />
+          <EntitySet Name="Car_Table" EntityType="Self.Car_Table" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Customer_Table" EntityType="Self.Customer_Table" />
+          <EntitySet Name="Employee_Table" EntityType="Self.Employee_Table" />
+          <EntitySet Name="RCB_Table" EntityType="Self.RCB_Table" />
+          <EntitySet Name="ShowRooms" EntityType="Self.ShowRoom" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Tax_Table" EntityType="Self.Tax_Table" />
+          <AssociationSet Name="FK_RCB_Table_Car_Table1" Association="Self.FK_RCB_Table_Car_Table1">
+            <End Role="Car_Table" EntitySet="Car_Table" />
+            <End Role="RCB_Table" EntitySet="RCB_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShowRoom_City" Association="Self.FK_ShowRoom_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="ShowRoom" EntitySet="ShowRooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RCB_Table_Customer_Table" Association="Self.FK_RCB_Table_Customer_Table">
+            <End Role="Customer_Table" EntitySet="Customer_Table" />
+            <End Role="RCB_Table" EntitySet="RCB_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RCB_Table_Tax_Table" Association="Self.FK_RCB_Table_Tax_Table">
+            <End Role="Tax_Table" EntitySet="Tax_Table" />
+            <End Role="RCB_Table" EntitySet="RCB_Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AutoDealershipModelStoreContainer" CdmEntityContainer="AutoDealershipEntities">
+          <EntitySetMapping Name="Admin_Table">
+            <EntityTypeMapping TypeName="AutoDealershipModel.Admin_Table">
+              <MappingFragment StoreEntitySet="Admin_Table">
+                <ScalarProperty Name="A_ID" ColumnName="A_ID" />
+                <ScalarProperty Name="A_UserName" ColumnName="A_UserName" />
+                <ScalarProperty Name="A_Password" ColumnName="A_Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Car_Table">
+            <EntityTypeMapping TypeName="AutoDealershipModel.Car_Table">
+              <MappingFragment StoreEntitySet="Car_Table">
+                <ScalarProperty Name="CA_ID" ColumnName="CA_ID" />
+                <ScalarProperty Name="CA_RegNo" ColumnName="CA_RegNo" />
+                <ScalarProperty Name="CA_Color" ColumnName="CA_Color" />
+                <ScalarProperty Name="CA_Model" ColumnName="CA_Model" />
+                <ScalarProperty Name="CA_Company" ColumnName="CA_Company" />
+                <ScalarProperty Name="CA_Status" ColumnName="CA_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="AutoDealershipModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Ci_ID" ColumnName="Ci_ID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer_Table">
+            <EntityTypeMapping TypeName="AutoDealershipModel.Customer_Table">
+              <MappingFragment StoreEntitySet="Customer_Table">
+                <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+                <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+                <ScalarProperty Name="C_Address" ColumnName="C_Address" />
+                <ScalarProperty Name="C_Phone" ColumnName="C_Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee_Table">
+            <EntityTypeMapping TypeName="AutoDealershipModel.Employee_Table">
+              <MappingFragment StoreEntitySet="Employee_Table">
+                <ScalarProperty Name="E_ID" ColumnName="E_ID" />
+                <ScalarProperty Name="E_Name" ColumnName="E_Name" />
+                <ScalarProperty Name="E_Address" ColumnName="E_Address" />
+                <ScalarProperty Name="E_Desg" ColumnName="E_Desg" />
+                <ScalarProperty Name="E_Phone" ColumnName="E_Phone" />
+                <ScalarProperty Name="E_Salary" ColumnName="E_Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RCB_Table">
+            <EntityTypeMapping TypeName="AutoDealershipModel.RCB_Table">
+              <MappingFragment StoreEntitySet="RCB_Table">
+                <ScalarProperty Name="RCB_ID" ColumnName="RCB_ID" />
+                <ScalarProperty Name="RCB_DOI" ColumnName="RCB_DOI" />
+                <ScalarProperty Name="RCB_DOR" ColumnName="RCB_DOR" />
+                <ScalarProperty Name="RCB_RentPD" ColumnName="RCB_RentPD" />
+                <ScalarProperty Name="RCB_TotalBill" ColumnName="RCB_TotalBill" />
+                <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+                <ScalarProperty Name="CA_ID" ColumnName="CA_ID" />
+                <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShowRooms">
+            <EntityTypeMapping TypeName="AutoDealershipModel.ShowRoom">
+              <MappingFragment StoreEntitySet="ShowRoom">
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+                <ScalarProperty Name="ShowRName" ColumnName="ShowRName" />
+                <ScalarProperty Name="SRContectNumber" ColumnName="SRContectNumber" />
+                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AutoDealershipModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tax_Table">
+            <EntityTypeMapping TypeName="AutoDealershipModel.Tax_Table">
+              <MappingFragment StoreEntitySet="Tax_Table">
+                <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+                <ScalarProperty Name="T_Per" ColumnName="T_Per" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

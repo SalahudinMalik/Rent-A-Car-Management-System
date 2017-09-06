@@ -1,0 +1,20 @@
+﻿AutoDealership
+
+
+winexe
+C#
+.cs
+G:\Study material\AutoDealership\AutoDealership\obj\Debug\
+AutoDealership
+none
+false
+DEBUG;TRACE
+G:\Study material\AutoDealership\AutoDealership\App.xaml
+19296133163
+
+231569025893
+16-295508936
+Form\CarsForm.xaml;Form\ChangeCarInfo.xaml;Form\ChangeEmployeeInfo.xaml;Form\DeleteCar.xaml;Form\DeleteEmployee.xaml;Form\DeleteShowroom.xaml;Form\EmployeeForm.xaml;Form\ManageShowRoom.xaml;Form\Rent Car Bill.xaml;Form\ResourceForm.xaml;Form\ReturnCar.xaml;Form\UpdateCar.xaml;Form\UpdateEmployee.xaml;Form\ViewAllCar.xaml;Form\ViewEmployee.xaml;Form\ViewRentCar.xaml;Form\ViewShowroom.xaml;LoginForm.xaml;MainWindow.xaml;
+
+False
+

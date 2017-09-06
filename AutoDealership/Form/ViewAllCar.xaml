@@ -1,0 +1,17 @@
+﻿<Window x:Class="AutoDealership.Form.ViewAllCar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="View All Car" Height="300" Width="509.559" Loaded="Window_Loaded">
+    <Grid Background="#FFC0C8C9">
+        <DataGrid AutoGenerateColumns="False" Name="CarGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding CA_RegNo}" Width="100" Header="Reg No"/>
+                <DataGridTextColumn Binding="{Binding CA_Color}" Width="100" Header="Color"/>
+                <DataGridTextColumn Binding="{Binding CA_Model}" Width="100" Header="Model"/>
+                <DataGridTextColumn Binding="{Binding CA_Company}" Width="100" Header="Company"/>
+                <DataGridTextColumn Binding="{Binding CA_Status}" Width="100" Header="Status"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

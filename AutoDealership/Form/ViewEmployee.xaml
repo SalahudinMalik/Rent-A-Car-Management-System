@@ -1,0 +1,18 @@
+﻿<Window x:Class="AutoDealership.Form.ViewEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        Title="ViewEmployee" Height="305.515" Width="512.192" Loaded="Window_Loaded">
+    <Grid Background="#FFC0C8C9">
+        <DataGrid AutoGenerateColumns="False" Name="EmployeeGrid">
+            <DataGrid.Columns>
+            <DataGridTextColumn Binding="{Binding E_Name}" Width="100" Header="Name"/>
+            <DataGridTextColumn Binding="{Binding E_Address}" Width="100" Header="Address"/>
+            <DataGridTextColumn Binding="{Binding E_Desg}" Width="100" Header="Designation"/>
+            <DataGridTextColumn Binding="{Binding E_Phone}" Width="100" Header="Phone"/>
+            <DataGridTextColumn Binding="{Binding E_Salary}" Width="100" Header="Salary"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

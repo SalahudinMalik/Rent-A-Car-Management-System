@@ -1,0 +1,22 @@
+﻿<Window x:Class="AutoDealership.Form.ViewRentCar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        Title="View Rent Car" Height="305.515" Width="795.544" Loaded="Window_Loaded">
+    <Grid Background="#FFC0C8C9">
+        <DataGrid AutoGenerateColumns="False" x:Name="GridRCD">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding CA_RegNo}" Width="80" Header="Car RegNo"/>
+                <DataGridTextColumn Binding="{Binding C_Name}" Width="100" Header="Customer Name"/>
+                <DataGridTextColumn Binding="{Binding C_Address}" Width="110" Header="Customer Address"/>
+                <DataGridTextColumn Binding="{Binding C_Phone}" Width="100" Header="Customer Phone"/>
+                <DataGridTextColumn Binding="{Binding RCB_DOI}" Width="85" Header="Date Of Issue"/>
+                <DataGridTextColumn Binding="{Binding RCB_DOR}" Width="90" Header="Date Of Return"/>
+                <DataGridTextColumn Binding="{Binding RCB_RentPD}" Width="70" Header="Rent/day"/>
+                <DataGridTextColumn Binding="{Binding T_Per}" Width="40" Header="Tax"/>
+                <DataGridTextColumn Binding="{Binding RCB_TotalBill}" Width="100" Header="Total Price"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
